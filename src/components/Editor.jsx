@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-export const Editor = ({ textHandler, text }) => {
+export const Editor = ({ markdownHandler, markdown }) => {
 	return (
 		<div className='editor-container'>
 			<label htmlFor='editor'></label>
@@ -8,8 +8,8 @@ export const Editor = ({ textHandler, text }) => {
 				className='editor'
 				title='markdown editor'
 				placeholder='Editor'
-				onChange={(e) => textHandler(e.target.value)}
-				value={text}
+				onChange={(e) => markdownHandler(e.target.value)}
+				value={markdown}
 			></textarea>
 		</div>
 	);

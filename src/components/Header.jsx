@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { AiFillFileMarkdown, AiOutlineClear } from 'react-icons/ai';
 
 // eslint-disable-next-line react/prop-types
-export const Header = ({ textHandler }) => {
+export const Header = ({ markdownHandler }) => {
 	const [file, setFile] = useState(null); // { name, size, type, ... }
 	const inputFileRef = useRef(null);
 
@@ -12,7 +12,7 @@ export const Header = ({ textHandler }) => {
 		const content = e.target.result;
 
 		// Update the md text state.
-		textHandler(content);
+		markdownHandler(content);
 	};
 
 	const onFileSelected = (file) => {
@@ -29,7 +29,7 @@ export const Header = ({ textHandler }) => {
 	};
 
 	const removeFile = () => {
-		textHandler('');
+		markdownHandler('');
 		setFile(null);
 
 		if (inputFileRef.current) {

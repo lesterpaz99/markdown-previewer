@@ -4,24 +4,24 @@ import { Editor } from './components/Editor';
 import { Previewer } from './components/Previewer';
 
 import { useState } from 'react';
-import { useParser } from './hooks/useParser';
+import { useMarkdownParser } from './hooks/useMarkdownParser';
 import { data } from './data/markdown';
 import './App.css';
 
 function App() {
-	const [text, setText] = useState(data);
+	const [markdown, setMarkdown] = useState(data);
 
-	const jsxContent = useParser(text);
+	const jsxContent = useMarkdownParser(markdown);
 
-	const textHandler = (text) => {
-		setText(text);
+	const markdownHandler = (markdown) => {
+		setMarkdown(markdown);
 	};
 
 	return (
 		<>
-			<Header textHandler={textHandler} />
+			<Header markdownHandler={markdownHandler} />
 			<div className='main-wrapper'>
-				<Editor textHandler={textHandler} text={text} />
+				<Editor markdownHandler={markdownHandler} markdown={markdown} />
 				<Previewer jsxContent={jsxContent} />
 			</div>
 		</>
